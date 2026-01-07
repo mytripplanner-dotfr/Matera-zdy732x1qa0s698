@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matera, la Cité des Sassi : Douceur et Histoire en Basilicate </title>
+    <link rel="icon" type="image/png" href="https://api.mytripplanner.fr/api/files/pbc_1321337024/47976eld0rscwbc/favicon_ytvg76obie.svg?thumb=100x100&token=" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      template: {
+                          sable: '#FFEDD5', 
+                          ocre: '#F97316',   // Orange Vibrant (Brand Accent)
+                          roche: '#0F172A',  // Bleu Nuit (Brand Dark)
+                          ciel: '#0D9488',   // Vert Lagon (Brand Primary)
+                          bg: '#FFF7ED'      // C'est un blanc cassé chaud, parfait pour la lecture et le contraste.
+                      }
+                  },
+                  fontFamily: {
+                      sans: ['"Plus Jakarta Sans"', 'sans-serif'], // Nouvelle police corps
+                      serif: ['"Outfit"', 'sans-serif'],           // Nouvelle police titres
+                  }
+              }
+          }
+      }
+    </script>
+    <style>
+        body { overflow-x: hidden; }
+        
+        /* 2. FORÇAGE DES GRAISSES (Comme sur la Landing Page) */
+        .font-sans { font-weight: 600 !important; }
+        .font-serif { font-weight: 800 !important; }
+
+        /* Ligne verticale de la timeline */
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #E5E7EB;
+            z-index: 0;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-line { left: 50%; margin-left: -1px; }
+        }
+
+        /* Style des cartes Info */
+        .tip-card {
+            border-left: 4px solid #F97316; /* ocre */
+            background-color: #FFF7ED;
+        }
+
+        /* Masquer la scrollbar de la nav mobile tout en gardant le scroll */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-template-bg text-template-roche antialiased">
+    
+    <nav id="nav-desktop" class="hidden md:flex fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-gray-200 py-4 px-8 justify-between items-center shadow-sm transition-transform duration-300 -translate-y-full">
+        <a href="#top" class="text-xl font-serif font-bold tracking-widest text-template-roche">MyTrip<span class="text-template-ocre">Planner</span></a>
+        <div class="space-x-6 text-sm font-bold text-gray-600">
+            <a href="#jour-1" class="nav-item-desktop hover:text-template-ocre transition">Le Parcours</a>
+            <a href="#pratique" class="nav-item-desktop hover:text-template-ocre transition">Infos Pratiques</a>
+        </div>
+    </nav>
+
+    <nav id="nav-mobile" class="md:hidden fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-200 py-3 pl-4 overflow-x-auto hide-scroll whitespace-nowrap shadow-md transition-transform duration-300 -translate-y-full">
+        <div class="flex space-x-2 pr-4" id="mobile-menu-container">
+            <a href="#top" class="inline-block px-3 py-1 bg-template-roche text-white rounded-full text-xs font-bold shadow-sm">Top</a>
+            
+                <a href="#jour-1" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J1 Arrivée paisible à Matera</a>
+            
+                <a href="#jour-2" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J2 Immersion dans le Sasso Barisano et la Cathédrale</a>
+            
+                <a href="#jour-3" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J3 Le Sasso Caveoso et la vie d"antan</a>
+            
+                <a href="#jour-4" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J4 Panorama et nature au Parco della Murgia Materana</a>
+            
+                <a href="#jour-5" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J5 Trésors cachés et ingénierie antique</a>
+            
+                <a href="#jour-6" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J6 Escapade féerique à Alberobello</a>
+            
+                <a href="#jour-7" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J7 Charme côtier à Polignano a Mare</a>
+            
+                <a href="#jour-8" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J8 Détente et saveurs materanes</a>
+            
+                <a href="#jour-9" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J9 Artisanat et vues imprenables</a>
+            
+                <a href="#jour-10" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J10 Gravina in Puglia, la Matera secrète</a>
+            
+                <a href="#jour-11" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J11 Culture et musées de Matera</a>
+            
+                <a href="#jour-12" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J12 Derniers charmes des Sassi</a>
+            
+                <a href="#jour-13" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J13 Matinée libre et préparation au départ</a>
+            
+                <a href="#jour-14" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J14 Départ de Bari</a>
+            
+            <a href="#pratique" class="mobile-link inline-block px-3 py-1 border border-gray-300 text-gray-500 rounded-full text-xs font-bold">Infos</a>
+        </div>
+    </nav>
+
+    <header id="top" class="relative h-[60vh] flex items-center justify-center bg-cover bg-center"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/header.png" || 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021'}');">
+        
+        <div class="relative z-20 text-center text-white px-4 max-w-3xl animate-fade-in-up">
+            <p class="font-sans text-template-sable tracking-[0.2em] mb-4 uppercase text-xs font-bold">Feuille de Route</p>
+            <h1 class="font-serif text-5xl md:text-8xl mb-6 leading-tight drop-shadow-lg">MATERA</h1>
+            <p class="font-sans text-lg md:text-xl text-gray-100 mb-10 font-medium max-w-2xl mx-auto leading-relaxed">Matera, la Cité des Sassi : Douceur et Histoire en Basilicate</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-bold mb-10">
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">🗓️ Du 9 au 22 Janvier 2026</span>
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">💰 Environ 1420 €/personne</span>
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">🛬 2h30 (depuis Paris, France)</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="itineraire" class="max-w-6xl mx-auto px-4 py-16 relative">
+      <div class="text-center mb-16">
+            <h2 class="text-template-ocre font-bold tracking-normal text-4xl mt-2 uppercase font-serif">Votre Roadtrip</h2>
+      </div>
+
+        <div class="relative">
+            <div class="timeline-line"></div>
+            
+                <div id="jour-1" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 1</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Arrivée paisible à Matera</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après votre vol et un court transfert, installez-vous confortablement dans votre "sasso" (habitation troglodytique). Profitez d"une première balade douce pour vous imprégner de l"atmosphère unique de Matera, classée au patrimoine mondial de l"UNESCO. Laissez-vous charmer par les lumières du soir qui transforment la ville en un tableau vivant.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🛬 <strong>Vol Paris-Bari et transfert vers Matera</strong>: Arrivée à l"aéroport de Bari, puis transfert en bus ou train jusqu"à Matera (environ 1h30 de trajet).</li><li>🛏️ <strong>Installation dans un hôtel troglodytique</strong>: Prenez possession de votre hébergement unique au cœur des Sassi, pour une immersion totale.</li><li>🚶‍♂️ <strong>Première balade exploratoire dans le Sasso Barisano</strong>: Une promenade légère pour découvrir les premières ruelles et points de vue, sans se presser.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/jour1.jpg" class="w-full h-64 object-cover" alt="Jour 1">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">ℹ️ À savoir</p>
+                                <p class="text-gray-700">Le transfert de l"aéroport de Bari à Matera est bien organisé, avec des bus directs ou des combinaisons train+bus. Prévoyez environ 1h30 de trajet.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-2" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 2</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Immersion dans le Sasso Barisano et la Cathédrale</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Aujourd"hui, plongez plus profondément dans le Sasso Barisano, le quartier le plus restauré des Sassi. Explorez ses églises rupestres et ses habitations, puis montez jusqu"à la majestueuse Cathédrale de Matera pour des vues imprenables sur la ville. Une journée riche en découvertes architecturales et historiques, à un rythme tranquille.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>⛪ <strong>Exploration du Sasso Barisano</strong>: Flânez dans les ruelles, admirez les façades et découvrez les églises rupestres comme San Pietro Barisano.</li><li>🚶‍♀️ <strong>Montée à la Cathédrale de Matera</strong>: Visitez ce joyau roman-apulien et profitez de la vue panoramique sur les deux Sassi et le plateau de la Murgia.</li><li>🍝 <strong>Dîner traditionnel dans un restaurant troglodytique</strong>: Savourez les saveurs locales dans un cadre unique, pour une expérience culinaire authentique.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/jour2.jpg" class="w-full h-64 object-cover" alt="Jour 2">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Conseil</p>
+                                <p class="text-gray-700">Les Sassi sont un labyrinthe de ruelles et d"escaliers. Portez des chaussures confortables et préparez-vous à monter et descendre. Prenez votre temps pour vous perdre et découvrir des recoins cachés.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-3" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 3</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Le Sasso Caveoso et la vie d"antan</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Aujourd"hui, direction le Sasso Caveoso, le quartier le plus ancien et le plus évocateur, où les habitations sont encore plus profondément creusées dans la roche. Visitez une "Casa Grotta" pour comprendre la vie des habitants d"autrefois et explorez les églises rupestres ornées de fresques. Une journée immersive dans l"histoire de Matera.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚶‍♂️ <strong>Exploration du Sasso Caveoso</strong>: Découvrez ce quartier fascinant, avec ses grottes et ses vues spectaculaires sur la Gravina.</li><li>🏡 <strong>Visite de la Casa Grotta di Vico Solitario</strong>: Plongez dans le passé en visitant une maison-grotte typique, meublée comme au début du XXe siècle.</li><li>⛪ <strong>Découverte de l"église rupestre Santa Lucia alle Malve</strong>: Admirez les fresques médiévales de cette église-monastère, un témoignage de l"art rupestre.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/jour3.jpg" class="w-full h-64 object-cover" alt="Jour 3">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📸 Spot photo</p>
+                                <p class="text-gray-700">Le belvédère de Piazza San Pietro Caveoso offre l"une des plus belles vues sur le Sasso Caveoso et la Gravina. Idéal pour des photos mémorables.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-4" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 4</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Panorama et nature au Parco della Murgia Materana</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Évadez-vous de la ville pour une matinée au Parco della Murgia Materana. Traversez la Gravina via le pont tibétain pour admirer Matera sous un angle nouveau, entourée de son paysage naturel. L"après-midi sera dédiée à la détente, peut-être avec une dégustation de produits locaux. Une journée pour respirer et apprécier la beauté environnante.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚶‍♀️ <strong>Randonnée douce dans le Parco della Murgia Materana</strong>: Explorez les sentiers du parc, découvrez d"autres églises rupestres et profitez de vues spectaculaires sur Matera.</li><li>🌉 <strong>Traversée du Pont Tibetano</strong>: Une expérience unique pour franchir la Gravina et accéder aux grottes préhistoriques et aux églises rupestres du parc.</li><li>🍷 <strong>Dégustation de produits locaux</strong>: Goûtez aux vins, fromages et autres délices de la Basilicate dans une épicerie fine ou un bar à vin.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/jour4.jpg" class="w-full h-64 object-cover" alt="Jour 4">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">👟 Équipement</p>
+                                <p class="text-gray-700">Pour la randonnée dans le parc, des chaussures de marche sont indispensables. Le terrain peut être inégal et glissant par endroits.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-5" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 5</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Trésors cachés et ingénierie antique</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Découvrez deux facettes étonnantes de Matera : la Crypta du Péché Originel, une chapelle rupestre aux fresques sublimes, et le Palombaro Lungo, une immense citerne souterraine témoignant de l"ingéniosité hydraulique des anciens. Ces visites offrent un aperçu unique de l"art et de l"histoire de la région, loin des foules.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🖼️ <strong>Visite de la Crypta du Péché Originel</strong>: Admirez les fresques pré-médiévales de cette "Chapelle Sixtine" rupestre, un chef-d"œuvre de l"art paléochrétien (réservation obligatoire).</li><li>💧 <strong>Exploration du Palombaro Lungo</strong>: Descendez dans cette impressionnante citerne souterraine, véritable cathédrale de l"eau, située sous la Piazza Vittorio Veneto.</li><li>🚶‍♀️ <strong>Balade relaxante sur la Piazza Vittorio Veneto</strong>: Profitez de l"animation de la place principale, observez les passants et savourez un "gelato".</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/jour5.jpg" class="w-full h-64 object-cover" alt="Jour 5">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎟️ Réservation</p>
+                                <p class="text-gray-700">La visite de la Crypta du Péché Originel doit être réservée à l"avance, car les places sont limitées pour préserver les fresques.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-6" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 6</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Escapade féerique à Alberobello</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Partez pour une journée d"excursion relaxante vers Alberobello, une ville unique classée au patrimoine mondial de l"UNESCO, célèbre pour ses "Trulli". Ces maisons coniques en pierre sèche offrent un spectacle architectural fascinant. Flânez dans les ruelles, découvrez l"artisanat local et imprégnez-vous de l"atmosphère de conte de fées.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚌 <strong>Trajet Matera-Alberobello</strong>: Profitez d"un trajet pittoresque à travers la campagne des Pouilles (environ 1h de bus).</li><li>🚶‍♀️ <strong>Exploration du Rione Monti</strong>: Baladez-vous dans le quartier le plus emblématique d"Alberobello, parsemé de plus de mille Trulli.</li><li>⛪ <strong>Visite du Trullo Sovrano</strong>: Le seul Trullo à deux étages, transformé en musée, offre un aperçu de la vie traditionnelle dans ces habitations.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/jour6.jpg" class="w-full h-64 object-cover" alt="Jour 6">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🛍️ Souvenirs</p>
+                                <p class="text-gray-700">De nombreux Trulli abritent des boutiques d"artisanat local. C"est l"occasion parfaite pour trouver des souvenirs uniques et soutenir les artisans.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-7" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 7</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Charme côtier à Polignano a Mare</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Changez de décor avec une excursion à Polignano a Mare, une perle des Pouilles perchée sur des falaises calcaires surplombant l"Adriatique. Profitez de l"air marin, des vues spectaculaires et de l"ambiance décontractée de cette ville côtière. Une journée parfaite pour se ressourcer au bord de la mer.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚌 <strong>Trajet Matera-Polignano a Mare</strong>: Un trajet agréable pour rejoindre la côte (environ 1h15 de bus/train via Bari).</li><li>🚶‍♀️ <strong>Balade dans le centre historique</strong>: Flânez dans les ruelles blanches, découvrez les balcons panoramiques et les poèmes muraux.</li><li>🏖️ <strong>Vue sur la Cala Porto (Lama Monachile)</strong>: Admirez la célèbre plage encaissée entre deux falaises, un spot emblématique de la ville.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/jour7.jpg" class="w-full h-64 object-cover" alt="Jour 7">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🍽️ Pause gourmande</p>
+                                <p class="text-gray-700">Ne manquez pas de goûter au "panzerotto" (chausson frit) ou à un plat de fruits de mer frais dans l"un des restaurants avec vue sur la mer.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-8" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 8</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Détente et saveurs materanes</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après les excursions, offrez-vous une journée de pure détente à Matera. Profitez d"un rythme lent, explorez les recoins moins connus de la ville, et laissez-vous tenter par une expérience culinaire locale. C"est l"occasion de savourer l"ambiance unique des Sassi et de recharger vos batteries.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚶‍♀️ <strong>Balade libre et découverte de ruelles secrètes</strong>: Laissez-vous guider par votre curiosité et explorez les passages et escaliers moins fréquentés des Sassi.</li><li>☕ <strong>Pause café et observation de la vie locale</strong>: Installez-vous dans un café de la Piazza Sedile et observez le quotidien des Materani.</li><li>👨‍🍳 <strong>Cours de cuisine locale (optionnel)</strong>: Apprenez à préparer des spécialités de la Basilicate, comme les orecchiette, pour une immersion gourmande.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/jour8.jpg" class="w-full h-64 object-cover" alt="Jour 8">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💆‍♀️ Bien-être</p>
+                                <p class="text-gray-700">Certains hôtels troglodytiques proposent des spas creusés dans la roche. Une expérience relaxante unique pour se détendre après plusieurs jours de marche.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-9" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 9</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Artisanat et vues imprenables</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Cette journée est dédiée à l"artisanat local et à la recherche de nouveaux points de vue sur Matera. Visitez les ateliers où les artisans travaillent la pierre de tuf et la céramique, puis trouvez un endroit paisible pour admirer le coucher de soleil sur les Sassi. Une journée pour apprécier la créativité et la beauté naturelle de la ville.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🎨 <strong>Visite d"ateliers d"artisans locaux</strong>: Découvrez le travail de la pierre de tuf, de la céramique ou du cuir dans les boutiques-ateliers des Sassi.</li><li>🔭 <strong>Découverte de nouveaux belvédères</strong>: Cherchez des points de vue moins connus pour des perspectives uniques sur les Sassi, comme celui de Via Madonna delle Virtù.</li><li>🌅 <strong>Coucher de soleil sur les Sassi</strong>: Trouvez un endroit privilégié pour admirer les couleurs chaudes du soleil couchant sur les habitations troglodytiques.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/jour9.jpg" class="w-full h-64 object-cover" alt="Jour 9">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎁 Idée cadeau</p>
+                                <p class="text-gray-700">Les objets en pierre de tuf ou les céramiques peintes à la main sont des souvenirs authentiques et représentatifs de l"artisanat materan.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-10" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 10</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Gravina in Puglia, la Matera secrète</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Partez pour une excursion à Gravina in Puglia, souvent surnommée la "Matera secrète". Cette ville offre un paysage similaire avec ses habitations troglodytiques et son pont-aqueduc romain surplombant une gorge. Moins touristique que Matera, elle promet une exploration authentique et paisible.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚌 <strong>Trajet Matera-Gravina in Puglia</strong>: Un court trajet en bus ou en voiture (environ 30-40 minutes) pour découvrir une autre perle des Pouilles.</li><li>🚶‍♂️ <strong>Exploration du centre historique et du Ponte Acquedotto</strong>: Admirez l"impressionnant pont-aqueduc et les grottes creusées dans la roche.</li><li>⛪ <strong>Visite de la Cattedrale di Santa Maria Assunta</strong>: Découvrez cette cathédrale imposante et son architecture baroque.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/jour10.jpg" class="w-full h-64 object-cover" alt="Jour 10">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🤫 Moins connu</p>
+                                <p class="text-gray-700">Gravina est une alternative plus calme et tout aussi fascinante pour ceux qui apprécient les paysages troglodytiques sans la foule de Matera.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-11" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 11</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Culture et musées de Matera</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Plongez dans l"histoire et la culture de Matera à travers ses musées. Le Museo della Civiltà Contadina retrace la vie rurale, tandis que le MUSMA expose l"art contemporain dans un cadre troglodytique. Une journée pour enrichir vos connaissances et apprécier la richesse artistique de la ville.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🏛️ <strong>Visite du Museo della Civiltà Contadina</strong>: Découvrez les outils et objets du quotidien des paysans et artisans materani d"autrefois.</li><li>🖼️ <strong>Exploration du MUSMA (Museo della Scultura Contemporanea)</strong>: Admirez des œuvres d"art contemporain exposées dans les grottes du Palazzo Pomarici, une expérience unique.</li><li>🚶‍♀️ <strong>Flânerie dans le centre moderne</strong>: Profitez de l"après-midi pour explorer la partie plus récente de Matera, avec ses boutiques et ses cafés.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/jour11.jpg" class="w-full h-64 object-cover" alt="Jour 11">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📚 Approfondir</p>
+                                <p class="text-gray-700">Le MUSMA est un exemple parfait de la façon dont Matera a su se réinventer, en alliant son passé troglodytique à l"art moderne.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-12" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 12</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Derniers charmes des Sassi</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez de vos derniers jours à Matera pour revisiter vos endroits préférés ou découvrir de nouveaux détails que vous auriez manqués. Prenez le temps de vous imprégner une dernière fois de l"atmosphère magique des Sassi, peut-être en vous offrant un dernier repas mémorable avec vue. Une journée pour savourer chaque instant.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚶‍♀️ <strong>Revisite des Sassi à votre rythme</strong>: Laissez-vous porter par vos envies, explorez les ruelles, les églises ou les points de vue qui vous ont le plus marqué.</li><li>🛍️ <strong>Achats de souvenirs et produits locaux</strong>: Profitez-en pour acheter des produits typiques de la région, comme le pain de Matera ou des confitures artisanales.</li><li>🍽️ <strong>Dîner d"adieu avec vue panoramique</strong>: Offrez-vous un dernier repas dans un restaurant offrant une vue imprenable sur les Sassi illuminés.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/jour12.jpg" class="w-full h-64 object-cover" alt="Jour 12">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎁 Souvenir gourmand</p>
+                                <p class="text-gray-700">Le "Pane di Matera" est un excellent souvenir à rapporter, il se conserve longtemps et est délicieux.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-13" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 13</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Matinée libre et préparation au départ</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez d"une dernière matinée tranquille à Matera. Prenez un petit-déjeuner copieux, faites une dernière petite balade ou achetez les derniers souvenirs. Préparez-vous ensuite pour le transfert vers l"aéroport de Bari. Une journée douce pour clore ce magnifique voyage.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>☕ <strong>Petit-déjeuner typique</strong>: Savourez un dernier petit-déjeuner avec des produits locaux dans un café des Sassi.</li><li>🛍️ <strong>Derniers achats ou balade libre</strong>: Profitez des dernières heures pour flâner ou faire des emplettes de dernière minute.</li><li>🧳 <strong>Préparation des bagages et check-out</strong>: Organisez votre départ en toute sérénité.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/jour13.jpg" class="w-full h-64 object-cover" alt="Jour 13">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">⏰ Timing</p>
+                                <p class="text-gray-700">Prévoyez suffisamment de temps pour le transfert vers l"aéroport de Bari, surtout si votre vol est en fin de journée.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-14" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 14</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Départ de Bari</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">C"est le moment de dire au revoir à la magnifique Basilicate. Après un transfert confortable de Matera à l"aéroport de Bari, vous prendrez votre vol retour vers Paris, la tête remplie de souvenirs inoubliables des Sassi et des paysages enchanteurs de l"Italie du Sud. Un voyage qui restera gravé dans votre mémoire.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚌 <strong>Transfert Matera-Aéroport de Bari</strong>: Rejoignez l"aéroport de Bari en bus ou en taxi.</li><li>🛫 <strong>Vol Bari-Paris</strong>: Embarquement pour votre vol retour, avec des souvenirs plein la tête.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Matera-zdy732x1qa0s698/main/jour14.jpg" class="w-full h-64 object-cover" alt="Jour 14">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">✈️ Conseil aéroport</p>
+                                <p class="text-gray-700">L"aéroport de Bari est de taille moyenne, mais il est toujours conseillé d"arriver au moins 2 heures avant votre vol, surtout en période de pointe.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+    </section>
+
+    <section id="pratique" class="bg-white border-t border-gray-200 pt-12 pb-12 scroll-mt-24">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>💴</span> Budget
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget vol: </strong>A partir de 175 €/pers (A/R Paris-Bari)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget transports: </strong>Environ 35 €/pers (transferts aéroport, excursions)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget repas: </strong>Environ 450 €/pers (30-40 €/jour pour 14 jours)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget logement: </strong>Environ 600 €/pers (base 100 €/nuit pour 13 nuits, double)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget activités: </strong>Environ 160 €/pers (entrées musées, églises, cours de cuisine)</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>☀️</span> Périodes Idéales
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">Printemps (Avril-Juin)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">Automne (Septembre-Octobre)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">Hiver (Janvier-Mars) pour la tranquillité</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>📃</span> Infos pratiques
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">🧣 En janvier, les températures à Matera varient entre 3 et 10°C. Prévoyez des vêtements chauds, un bonnet et un parapluie.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">💳 L"euro (€) est la monnaie. Les cartes de crédit sont largement acceptées, mais ayez un peu de liquide pour les petits commerces ou marchés.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">🚶‍♀️ Matera est très agréable à explorer à pied. Pour les excursions, les bus locaux ou la location de voiture sont pratiques. La conduite est à droite.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">📶 Le Wi-Fi est généralement disponible dans les hébergements et de nombreux cafés. Une carte SIM locale (TIM, Vodafone) peut être utile pour les données mobiles.</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>🔗</span> Liens Utiles
+                </h4>
+                <ul class="text-sm space-y-3">
+                  <li><a href="https://mytripplanner-dotfr.github.io/Matera-zdy732x1qa0s698/map.html" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🗺️ Carte Interactive</strong></a></li>
+                    
+                        <li><a href="https://www.kayak.fr/flights/CDG-BRI/2026-01-09/2026-01-22" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🛬 Réserve ton vol Paris-Bari</strong></a></li>
+                    
+                        <li><a href="https://www.basilicataturistica.it/en/" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>📘 Tourisme Basilicate</strong></a></li>
+                    
+                        <li><a href="https://ferrovieappulolucane.it/" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🚆 Ferrovie Appulo Lucane (FAL)</strong></a></li>
+                    
+                        <li><a href="https://www.ilmeteo.it/meteo/Matera" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🌤️ Météo Matera</strong></a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-50 border-t border-slate-200 py-6">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="font-serif text-lg text-template-roche mb-2 font-bold">
+                MyTrip<span class="text-template-ocre">Planner</span>
+            </p>
+
+                <div class="flex justify-center gap-4 text-[10px] md:text-xs text-slate-500 mb-4 font-semibold">
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">Mentions Légales</a>
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">CGU</a>
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">Confidentialité</a>
+                </div>
+
+            <p class="text-[10px] text-gray-400 mb-2">
+                &copy; 2025 MyTripPlanner. Tous droits réservés.
+            </p>
+
+            <div class="flex justify-center">
+                <p class="text-[10px] text-gray-400 uppercase tracking-widest px-2 py-0.5 border border-gray-200 rounded-full inline-block">
+                    🤖 Contenu généré par IA
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion Scroll & Menu
+        const navDesktop = document.getElementById('nav-desktop');
+        const navMobile = document.getElementById('nav-mobile');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                navDesktop.classList.remove('-translate-y-full');
+                navMobile.classList.remove('-translate-y-full');
+            } else {
+                navDesktop.classList.add('-translate-y-full');
+                navMobile.classList.add('-translate-y-full');
+            }
+        });
+
+        // Active Link Highlighter
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.id;
+                    document.querySelectorAll('.mobile-link').forEach(link => {
+                        const linkHref = link.getAttribute('href').substring(1);
+                        if (linkHref === activeId) {
+                            link.classList.remove('bg-gray-100', 'text-gray-700');
+                            link.classList.add('bg-template-ocre', 'text-white', 'shadow-md');
+                            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        } else {
+                            link.classList.add('bg-gray-100', 'text-gray-700');
+                            link.classList.remove('bg-template-ocre', 'text-white', 'shadow-md');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-40% 0px -60% 0px' });
+
+        document.querySelectorAll('div[id^="jour-"], section#pratique').forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>
